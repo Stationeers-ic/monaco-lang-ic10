@@ -1,20 +1,3 @@
-/*
-j $0
-jr $0
-jal $0
-rand ${0:r0}
-yield
-label
-peek ${0:r0}
-push $0
-pop ${0:r0}
-hcf
-sleep $0}
-get ${1:r0} ${0:d0}
-clr ${0:d0}
-clrd $0
-rmap ${1:r0} ${2:d0} $0
-*/
 export const allInstructions: {
 	name: string
 	preview: string

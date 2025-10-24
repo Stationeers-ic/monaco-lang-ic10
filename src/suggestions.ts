@@ -8,7 +8,7 @@ for (let i = 0; i < rawInstructions.length; i++) {
 	if (!ins || ins.name.length === 0) continue
 	instructions.push({
 		label: ins.name,
-		kind: languages.CompletionItemKind.Function,
+		kind: languages.CompletionItemKind.Keyword,
 		insertText: `${ins.name} ${ins.snippet}`.trim(),
 		insertTextRules: languages.CompletionItemInsertTextRule.InsertAsSnippet,
 		documentation: ins.description || undefined,
