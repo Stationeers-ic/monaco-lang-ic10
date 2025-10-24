@@ -1,4 +1,3 @@
-// import { registerLanguage } from './register';
-
-
-export { registerLanguage } from './register'
+export * from "./register"
+export * from "./suggestions"
+export * from "./syntaxDefenition"
