@@ -1,13 +1,14 @@
 {
   "name": "monaco-lang-ic10",
   "module": "src/index.ts",
+  "version": "0.0.2",
   "scripts": {
     "dev": "bun --hot tools/test/serve.ts",
     "fix": "bunx --bun biome check . --write --unsafe"
   },
   "devDependencies": {
     "@types/bun": "latest",
-    "biome": "^0.3.4"
+    "biome": "^0.3.3"
   },
   "peerDependencies": {
     "typescript": "^5"
