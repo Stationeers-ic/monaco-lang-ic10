@@ -2,9 +2,10 @@
   "name": "monaco-lang-ic10",
   "module": "src/index.ts",
   "types": "./dist/index.d.ts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "scripts": {
     "build": "tsc",
+    "prepack": "bun run build",
     "dev": "bun --hot tools/test/serve.ts",
     "fix": "bunx --bun biome check . --write --unsafe"
   },
