@@ -1,8 +1,11 @@
 {
-  "name": "monaco-lang-ic10",
+  "name": "@stationeers-ic/monaco-lang-ic10",
   "author": "Aidan647",
   "description": "Monaco Editor language support for IC10 assembly language used in Stationeers.",
   "version": "0.1.3",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
