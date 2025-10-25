@@ -1,5 +1,5 @@
-import { join, resolve } from "path"
-import { watch } from "fs"
+import { watch } from "node:fs"
+import { join, resolve } from "node:path"
 
 // Store WebSocket clients for hot reload
 const clients = new Set<any>()
@@ -9,13 +9,12 @@ const srcPath = resolve(import.meta.dir, "..", "..", "src")
 const toolsTestPath = resolve(import.meta.dir)
 
 const watchDirs = [srcPath, toolsTestPath]
-let timeOut: NodeJS.Timeout | undefined = undefined
+let timeOut: NodeJS.Timeout | undefined
 
 for (const dir of watchDirs) {
 	watch(dir, { recursive: true }, (eventType, filename) => {
 		if (filename && (filename.endsWith(".ts") || filename.endsWith(".js"))) {
-			if (timeOut)
-				clearTimeout(timeOut)
+			if (timeOut) clearTimeout(timeOut)
 			timeOut = setTimeout(() => {
 				console.log(`File changed: ${filename}`)
 				// Notify all connected clients to reload
@@ -36,9 +35,7 @@ Bun.serve({
 		// WebSocket upgrade for hot reload
 		if (path === "/__hot_reload") {
 			const success = server.upgrade(req)
-			return success
-				? undefined
-				: new Response("WebSocket upgrade failed", { status: 500 })
+			return success ? undefined : new Response("WebSocket upgrade failed", { status: 500 })
 		}
 
 		if (path === "/") path = "/index.html"
@@ -64,8 +61,7 @@ Bun.serve({
 			}
 		}
 		const file = Bun.file(`./tools/test${path}`)
-		if (!await file.exists())
-			return new Response("Not Found", { status: 404 })
+		if (!(await file.exists())) return new Response("Not Found", { status: 404 })
 		return new Response(file)
 	},
 	websocket: {
@@ -83,6 +79,4 @@ Bun.serve({
 	},
 })
 
-console.log("Server running at http://localhost:3000");
-
-
+console.log("Server running at http://localhost:3000")

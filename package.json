@@ -2,14 +2,16 @@
   "name": "monaco-lang-ic10",
   "author": "Aidan647",
   "description": "Monaco Editor language support for IC10 assembly language used in Stationeers.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "dist/index.js",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --removeComments && tsc --declaration --emitDeclarationOnly",
-    "prepack": "rm -R dist && bun run build",
-    "dev": "bun --hot tools/test/serve.ts"
+    "prepack": "bun run fix && rm -R dist && bun run build",
+    "dev": "bun --hot tools/test/serve.ts",
+    "fix": "biome check . --write --unsafe",
+    "prepare": "husky"
   },
   "files": [
     "dist"
@@ -23,8 +25,9 @@
   },
   "homepage": "https://github.com/Stationeers-ic/monaco-lang-ic10#readme",
   "devDependencies": {
+    "@biomejs/biome": "^2.3.0",
     "@types/bun": "latest",
-    "biome": "^0.3.3"
+    "husky": "^9.1.7"
   },
   "peerDependencies": {
     "typescript": "^5"

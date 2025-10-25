@@ -1,6 +1,7 @@
 import * as monaco from "monaco-editor"
 import { registerLanguage } from "../../src"
 import { registerCompletionProvider } from "../../src/suggestions"
+
 // Monaco editor is loaded via AMD in index.html
 // declare const monaco: typeof import("monaco-editor");
 
@@ -21,7 +22,7 @@ j end
 
  hot:
 move r1 1
-s dDisplay Setting r1       # set display ON
+s dDisplay Setting r1 AirCon.Cold      # set display ON
 lbn rr2 dr2 HASH("StructureGasSensor") HASH("Sensor 1") Pressure Average
 s db Setting r2             # output value to IC housing
 yield
@@ -29,8 +30,8 @@ yield
 end:
 sleep 1
 `
-registerLanguage()
-registerCompletionProvider()
+registerLanguage(monaco)
+registerCompletionProvider(monaco)
 
 //     var tmThemeString = https://raw.githubusercontent.com/brijeshb42/monaco-themes/refs/heads/master/themes/Monokai.json
 //     var themeData = MonacoThemes.parseTmTheme(tmThemeString)
@@ -38,13 +39,11 @@ registerCompletionProvider()
 // monaco.editor.setTheme('mytheme')
 
 fetch("/monokai.json")
-	.then(data => data.json())
-	.then(data => {
-		monaco.editor.defineTheme('monokai', data)
-		monaco.editor.setTheme('monokai')
+	.then((data) => data.json())
+	.then((data) => {
+		monaco.editor.defineTheme("monokai", data)
+		monaco.editor.setTheme("monokai")
 	})
-
-
 
 const myEditor = monaco.editor.create(document.getElementById("container")!, {
 	value,

@@ -1,6 +1,6 @@
 export const constants: {
-	name: string;
-	description: string;
+	name: string
+	description: string
 }[] = [
 	{ name: "nan", description: "nan = NaN" },
 	{ name: "pinf", description: "pinf = Infinity" },
@@ -282,5 +282,5 @@ export const constants: {
 		name: "SorterInstruction.LimitNextExecutionByCount",
 		description: "SorterInstruction.LimitNextExecutionByCount = 6",
 	},
-];
-export default constants;
+]
+export default constants

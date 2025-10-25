@@ -1,6 +1,6 @@
 export const logic: {
-	name: string;
-	description: string;
+	name: string
+	description: string
 }[] = [
 	{
 		name: "Mode",
@@ -218,7 +218,8 @@ export const logic: {
 	},
 	{
 		name: "PressureSetting",
-		description: "The current setting for the internal pressure of the object (e.g. the Hardsuit Air release), in KPa",
+		description:
+			"The current setting for the internal pressure of the object (e.g. the Hardsuit Air release), in KPa",
 	},
 	{
 		name: "TemperatureSetting",
@@ -341,7 +342,8 @@ export const logic: {
 	},
 	{
 		name: "ClearMemory",
-		description: "When set to 1, clears the counter memory (e.g. ExportCount). Will set itself back to 0 when actioned",
+		description:
+			"When set to 1, clears the counter memory (e.g. ExportCount). Will set itself back to 0 when actioned",
 	},
 	{
 		name: "ExportCount",
@@ -421,7 +423,8 @@ export const logic: {
 	},
 	{
 		name: "TemperatureDifferentialEfficiency",
-		description: "How the difference between the input pipe and waste pipe temperatures effect the machines efficiency",
+		description:
+			"How the difference between the input pipe and waste pipe temperatures effect the machines efficiency",
 	},
 	{
 		name: "PressureEfficiency",
@@ -686,7 +689,8 @@ export const logic: {
 	},
 	{
 		name: "Acceleration",
-		description: "Change in velocity. Rockets that are deccelerating when landing will show this as negative value.",
+		description:
+			"Change in velocity. Rockets that are deccelerating when landing will show this as negative value.",
 	},
 	{
 		name: "AutoShutOff",
@@ -708,7 +712,8 @@ export const logic: {
 	},
 	{
 		name: "Weight",
-		description: "Weight of Rocket in Newtons (Including fuel and cargo). Weight is effected by local body gravity.",
+		description:
+			"Weight of Rocket in Newtons (Including fuel and cargo). Weight is effected by local body gravity.",
 	},
 	{
 		name: "ThrustToWeight",
@@ -765,5 +770,5 @@ export const logic: {
 		name: "NextWeatherEventTime",
 		description: "logic.NextWeatherEventTime",
 	},
-];
-export default logic;
+]
+export default logic
