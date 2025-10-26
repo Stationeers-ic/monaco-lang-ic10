@@ -19,15 +19,16 @@ for (let i = 0; i < rawInstructions.length; i++) {
 const logic: string[] = []
 for (let i = 0; i < rawLogic.length; i++) {
 	const ins = rawLogic[i]
-	if (!ins || ins.name.length === 0) continue
-	logic.push(ins.name)
+	if (!ins || ins.literal.length === 0) continue
+	logic.push(ins.literal)
 }
 const constants: string[] = []
 for (let i = 0; i < rawConstants.length; i++) {
 	const ins = rawConstants[i]
-	if (!ins || ins.name.length === 0) continue
-	constants.push(ins.name)
+	if (!ins || ins.literal.length === 0) continue
+	constants.push(ins.literal)
 }
+
 
 export const language: languages.IMonarchLanguage = {
 	defaultToken: "",
@@ -47,13 +48,18 @@ export const language: languages.IMonarchLanguage = {
 			// [/#.*$/, 'comment', '@comment'],
 			[/^\s*/, { token: "", next: "@instruction" }], // labels at the start of the line
 			{ include: "@arguments" },
-			[/.*$/, "comment"],
+			[/.*$/, "comment", "@popall"],
+			// [/./, { next: "@popall" }],
 		],
 		comment: [
 			[/\s*seed:/, "string", "@seed"],
 			[/.*$/, "comment", "@popall"],
 		],
-		seed: [[/\d+/, "number", "@pop"]],
+		seed: [
+			[/\s*seed:/, "string"],
+			[/\d+$/, "number", "@popall"],
+			[/\d+/, "number", "@pop"]
+		],
 		whitespace: [
 			[/\s+/, ""],
 			[/#/, "comment", "@comment"],
@@ -89,7 +95,7 @@ export const language: languages.IMonarchLanguage = {
 			{ include: "@function" },
 			{ include: "@numbers" },
 			[
-				/[a-zA-Z_.]*/,
+				/[a-zA-Z_]*[\w\d.]+/,
 				{
 					cases: {
 						"@logic": { token: "variable.parameter" },

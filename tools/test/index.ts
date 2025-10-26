@@ -6,32 +6,18 @@ import { registerCompletionProvider } from "../../src/suggestions"
 // declare const monaco: typeof import("monaco-editor");
 
 const value = `
-# IC10 Example: All Types in One
-# seed:12345678
-# hello seed:12345 ads
- alias dSensor d0           # device alias
- alias dDisplay $aff23          # another device
-alias vTemp %1010_1011             # register alias for variable
-define THRESHOLD -29.58       # constant definition
-
-l vTemp dSensor Temperature # read temperature from sensor
-bgt vTemp THRESHOLD hot     # branch if temp > threshold
-move r1 -0
-s dDisplay Setting r1       # set display to OFF
-j end
-
- hot:
-move r1 1
-s dDisplay Setting r1 AirCon.Cold      # set display ON
-lbn rr2 dr2 HASH("StructureGasSensor") HASH("Sensor 1") Pressure Average
-s db Setting r2             # output value to IC housing
-yield
-
-end:
-sleep 1
+#read all 8 channels with a loop and
+#place the values in r0 to r7
+move r15 LogicType.Channel0 #LogicType integer
+move r14 0 #pointer for indirect referencing
+loop:
+l rr14 db:0 r15
+add r15 r15 1 #next channel
+add r14 r14 1 #next register
+ble r15 LogicType.Channel7 loop
 `
 registerLanguage(monaco)
-registerCompletionProvider(monaco)
+// registerCompletionProvider(monaco)
 
 //     var tmThemeString = https://raw.githubusercontent.com/brijeshb42/monaco-themes/refs/heads/master/themes/Monokai.json
 //     var themeData = MonacoThemes.parseTmTheme(tmThemeString)

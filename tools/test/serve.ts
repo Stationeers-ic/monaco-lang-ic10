@@ -52,6 +52,7 @@ Bun.serve({
 				target: "browser",
 				// external: ["monaco-editor"],
 				minify: false,
+				sourcemap: "inline",
 			})
 
 			if (result.success) {

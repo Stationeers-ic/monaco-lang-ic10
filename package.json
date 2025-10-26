@@ -14,7 +14,8 @@
     "prepack": "bun run fix && rm -R dist && bun run build",
     "dev": "bun --hot tools/test/serve.ts",
     "fix": "biome check . --write --unsafe",
-    "prepare": "husky"
+    "prepare": "husky",
+    "update-data": "bun tools/updateData/index.ts"
   },
   "files": [
     "dist"
@@ -30,14 +31,14 @@
   "devDependencies": {
     "@biomejs/biome": "^2.3.0",
     "@types/bun": "latest",
-    "husky": "^9.1.7"
+    "husky": "^9.1.7",
+    "zod": "^4.1.12"
   },
   "peerDependencies": {
     "typescript": "^5"
   },
   "type": "module",
   "dependencies": {
-    "monaco-editor": "^0.54.0",
-    "monaco-editor-core": "^0.54.0"
+    "monaco-editor": "^0.54.0"
   }
 }
