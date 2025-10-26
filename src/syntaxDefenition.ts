@@ -29,7 +29,6 @@ for (let i = 0; i < rawConstants.length; i++) {
 	constants.push(ins.literal)
 }
 
-
 export const language: languages.IMonarchLanguage = {
 	defaultToken: "",
 	tokenPostfix: ".ic10",
@@ -58,7 +57,7 @@ export const language: languages.IMonarchLanguage = {
 		seed: [
 			[/\s*seed:/, "string"],
 			[/\d+$/, "number", "@popall"],
-			[/\d+/, "number", "@pop"]
+			[/\d+/, "number", "@pop"],
 		],
 		whitespace: [
 			[/\s+/, ""],

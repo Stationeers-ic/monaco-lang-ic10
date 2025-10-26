@@ -38,7 +38,10 @@ for (let i = 0; i < rawConstants.length; i++) {
 	if (!ins || ins.literal.length === 0) continue
 	variables.push({
 		label: ins.literal,
-		kind: ins.kind === kindEnum["Enum"] ? languages.CompletionItemKind.EnumMember : languages.CompletionItemKind.Constant,
+		kind:
+			ins.kind === kindEnum.Enum
+				? languages.CompletionItemKind.EnumMember
+				: languages.CompletionItemKind.Constant,
 		insertText: ins.literal.trim(),
 		insertTextRules: languages.CompletionItemInsertTextRule.None,
 		detail: ins.value.toString(),

@@ -1,11 +1,10 @@
-import { writeFile } from "fs/promises"
-import { row, stringifyHtml } from "."
+import { writeFile } from "node:fs/promises"
 import z from "zod"
+import { row, stringifyHtml } from "."
 import instructionSnippets from "./instructionSnippets"
 
 export default async function updateInstructionSnippets() {
-	const instructions = await fetch("https://assets.ic10.dev/languages/EN/instructions.json").then((res) => res.json()
-	)
+	const instructions = await fetch("https://assets.ic10.dev/languages/EN/instructions.json").then((res) => res.json())
 
 	const instruction = z.object({
 		name: z.string().min(1),
