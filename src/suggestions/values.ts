@@ -1,7 +1,7 @@
 import type { languages } from "monaco-editor"
 import { type constant, isConstant, type nestedData } from "../data"
 import rawConstants from "../data/constants"
-import LocaleDataManager from "../data/locale"
+import i18n from "../data/locale"
 import rawLogic from "../data/logic"
 import { kindEnum } from "../enums"
 import type { suggestionFunction } from "."
@@ -13,10 +13,9 @@ const cachedValues: {
 	cache: new Map(),
 	locale: "",
 }
-
 const getValueSuggestions: suggestionFunction = ({ range, snippets, lineContent }) => {
 	if (lineContent.includes("#")) return
-	if (cachedValues.locale !== LocaleDataManager.getDefaultLocale()) generateValue()
+	if (cachedValues.locale !== i18n.language) generateValue()
 	const Value = /(?:((?:\S*)\.)\w*|(\S+))$/.exec(lineContent)
 	if (!Value) {
 		for (const [key, item] of cachedValues.cache.entries()) {
@@ -70,10 +69,10 @@ const generateValue = (): void => {
 			insertText: name,
 			insertTextRules: 0, // languages.CompletionItemInsertTextRule.None,
 			detail: item.value.toString(),
-			documentation: LocaleDataManager.getDefaultByKeypath(item.literal, true) ?? undefined,
+			documentation: i18n.t(item.literal) || undefined,
 		})
 	}
 
-	cachedValues.locale = LocaleDataManager.getDefaultLocale()
+	cachedValues.locale = i18n.language
 }
 export default getValueSuggestions

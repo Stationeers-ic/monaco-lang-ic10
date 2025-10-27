@@ -1,0 +1,14 @@
+{
+  "LogicType.PowerRequired": "從設備和/或網路需求的電源",
+  "LogicType.RatioCarbonDioxide": "The ratio of 二氧化碳 (Carbon Dioxide) in device atmosphere",
+  "LogicType.RatioCarbonDioxideInput": "The ratio of 二氧化碳 (Carbon Dioxide) in device's input network",
+  "LogicType.RatioCarbonDioxideInput2": "The ratio of 二氧化碳 (Carbon Dioxide) in device's Input2 network",
+  "LogicType.RatioCarbonDioxideOutput": "The ratio of 二氧化碳 (Carbon Dioxide) in device's Output network",
+  "LogicType.RatioCarbonDioxideOutput2": "The ratio of 二氧化碳 (Carbon Dioxide) in device's Output2 network",
+  "LogicType.RatioNitrousOxide": "The ratio of 氧化亞氮 (Nitrous Oxide) in device atmosphere",
+  "LogicType.RatioNitrousOxideInput": "The ratio of 氧化亞氮 (Nitrous Oxide) in device's input network",
+  "LogicType.RatioNitrousOxideInput2": "The ratio of 氧化亞氮 (Nitrous Oxide) in device's Input2 network",
+  "LogicType.RatioNitrousOxideOutput": "The ratio of 氧化亞氮 (Nitrous Oxide) in device's Output network",
+  "LogicType.RatioNitrousOxideOutput2": "The ratio of 氧化亞氮 (Nitrous Oxide) in device's Output2 network",
+  "label": "已棄用"
+}

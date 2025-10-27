@@ -1,4 +1,3 @@
-
 export type constant = {
 	literal: string
 	value: number

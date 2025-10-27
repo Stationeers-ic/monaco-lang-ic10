@@ -1,0 +1,12 @@
+{
+  "LogicType.RatioCarbonDioxide": "The ratio of Koolstofdioxide in device atmosphere",
+  "LogicType.RatioCarbonDioxideInput": "The ratio of Koolstofdioxide in device's input network",
+  "LogicType.RatioCarbonDioxideInput2": "The ratio of Koolstofdioxide in device's Input2 network",
+  "LogicType.RatioCarbonDioxideOutput": "The ratio of Koolstofdioxide in device's Output network",
+  "LogicType.RatioCarbonDioxideOutput2": "The ratio of Koolstofdioxide in device's Output2 network",
+  "LogicType.RatioNitrousOxide": "The ratio of Distikstofmonoxide in device atmosphere",
+  "LogicType.RatioNitrousOxideInput": "The ratio of Distikstofmonoxide in device's input network",
+  "LogicType.RatioNitrousOxideInput2": "The ratio of Distikstofmonoxide in device's Input2 network",
+  "LogicType.RatioNitrousOxideOutput": "The ratio of Distikstofmonoxide in device's Output network",
+  "LogicType.RatioNitrousOxideOutput2": "The ratio of Distikstofmonoxide in device's Output2 network"
+}

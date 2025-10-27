@@ -4,51 +4,50 @@ export * from "./syntaxDefenition"
 
 import { registerLanguage } from "./register"
 export default registerLanguage
+export * from "./data/locale"
 
-import LocaleDataManager from "./data/locale"
-export { LocaleDataManager }
-export type { locale, localeData } from "./data/locale/index"
-
-import CN from "./data/locale/CN"
-import CS from "./data/locale/CS"
-import DA from "./data/locale/DA"
-import DE from "./data/locale/DE"
-import ES from "./data/locale/ES"
-import FI from "./data/locale/FI"
-import FR from "./data/locale/FR"
-import HU from "./data/locale/HU"
-import IT from "./data/locale/IT"
-import KN from "./data/locale/KN"
-import KO from "./data/locale/KO"
-import NL from "./data/locale/NL"
-import PB from "./data/locale/PB"
-import PL from "./data/locale/PL"
-import PT from "./data/locale/PT"
-import RO from "./data/locale/RO"
-import RU from "./data/locale/RU"
-import SK from "./data/locale/SK"
-import TR from "./data/locale/TR"
-import TW from "./data/locale/TW"
+import localeCN from "./data/locale/CN.json"
+import localeCS from "./data/locale/CS.json"
+import localeDA from "./data/locale/DA.json"
+import localeDE from "./data/locale/DE.json"
+import localeEN from "./data/locale/EN.json"
+import localeES from "./data/locale/ES.json"
+import localeFI from "./data/locale/FI.json"
+import localeFR from "./data/locale/FR.json"
+import localeHU from "./data/locale/HU.json"
+import localeIT from "./data/locale/IT.json"
+import localeKN from "./data/locale/KN.json"
+import localeKO from "./data/locale/KO.json"
+import localeNL from "./data/locale/NL.json"
+import localePB from "./data/locale/PB.json"
+import localePL from "./data/locale/PL.json"
+import localePT from "./data/locale/PT.json"
+import localeRO from "./data/locale/RO.json"
+import localeRU from "./data/locale/RU.json"
+import localeSK from "./data/locale/SK.json"
+import localeTR from "./data/locale/TR.json"
+import localeTW from "./data/locale/TW.json"
 
 export {
-	CN as localeCN,
-	CS as localeCS,
-	DA as localeDA,
-	DE as localeDE,
-	ES as localeES,
-	FI as localeFI,
-	FR as localeFR,
-	HU as localeHU,
-	IT as localeIT,
-	KN as localeKN,
-	KO as localeKO,
-	NL as localeNL,
-	PB as localePB,
-	PL as localePL,
-	PT as localePT,
-	RO as localeRO,
-	RU as localeRU,
-	SK as localeSK,
-	TR as localeTR,
-	TW as localeTW,
+	localeEN,
+	localeCN,
+	localeCS,
+	localeDA,
+	localeDE,
+	localeES,
+	localeFI,
+	localeFR,
+	localeHU,
+	localeIT,
+	localeKN,
+	localeKO,
+	localeNL,
+	localePB,
+	localePL,
+	localePT,
+	localeRO,
+	localeRU,
+	localeSK,
+	localeTR,
+	localeTW,
 }
