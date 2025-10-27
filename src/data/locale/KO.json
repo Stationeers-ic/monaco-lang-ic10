@@ -1,0 +1,8 @@
+{
+  "LogicType.PowerRequired": "No other readable devices on network",
+  "LogicType.RatioCarbonDioxide": "The ratio of 이산화탄소 in device atmosphere",
+  "LogicType.RatioCarbonDioxideInput": "The ratio of 이산화탄소 in device's input network",
+  "LogicType.RatioCarbonDioxideInput2": "The ratio of 이산화탄소 in device's Input2 network",
+  "LogicType.RatioCarbonDioxideOutput": "The ratio of 이산화탄소 in device's Output network",
+  "LogicType.RatioCarbonDioxideOutput2": "The ratio of 이산화탄소 in device's Output2 network"
+}

@@ -1,9 +1,23 @@
 import * as monaco from "monaco-editor"
-import { localeRU, registerLanguage } from "../../src"
-import LocaleDataManager from "../../src/data/locale"
-
+import { registerLanguage } from "../../src"
+import i18n from "../../src/data/locale"
+import en from "../../src/data/locale/en.json"
 // Monaco editor is loaded via AMD in index.html
 // declare const monaco: typeof import("monaco-editor");
+import ru from "../../src/data/locale/ru.json"
+
+await i18n.init({
+	fallbackLng: "en",
+	lng: "ru",
+	resources: {
+		en: {
+			translation: en,
+		},
+		ru: {
+			translation: ru,
+		},
+	},
+})
 
 const value = `
 #place the values in r0 to r7
@@ -40,9 +54,6 @@ const editor = monaco.editor.create(document.getElementById("container")!, {
 		return `${lineNumber - 1}`
 	},
 })
-
-LocaleDataManager.loadLocale("ru", localeRU)
-LocaleDataManager.setDefaultLocale("ru")
 
 // const breakpoints = new Map<number, monaco.editor.IEditorDecorationsCollection>()
 

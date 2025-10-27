@@ -1,0 +1,8 @@
+{
+  "LogicType.PowerRequired": "No other readable devices on network",
+  "LogicType.RatioCarbonDioxide": "The ratio of Oxid Uhličitý in device atmosphere",
+  "LogicType.RatioCarbonDioxideInput": "The ratio of Oxid Uhličitý in device's input network",
+  "LogicType.RatioCarbonDioxideInput2": "The ratio of Oxid Uhličitý in device's Input2 network",
+  "LogicType.RatioCarbonDioxideOutput": "The ratio of Oxid Uhličitý in device's Output network",
+  "LogicType.RatioCarbonDioxideOutput2": "The ratio of Oxid Uhličitý in device's Output2 network"
+}

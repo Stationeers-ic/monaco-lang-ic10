@@ -2,5 +2,6 @@
 	// "editor.codeActionsOnSave": {
 	// 	"source.fixAll.biome": "always"
 	// },
-	"editor.formatOnPaste": false
+	"editor.formatOnPaste": false,
+	"i18n-ally.localesPaths": ["src/data/locale"]
 }
