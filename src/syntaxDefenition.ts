@@ -91,9 +91,9 @@ export const language: languages.IMonarchLanguage = {
 		],
 		instruction: [
 			{ include: "@whitespace" },
-			[/[a-zA-Z_.]*:/, { token: "support.type", next: "@pop" }],
+			[/[a-zA-Z_\d]*:/, { token: "support.type", next: "@pop" }],
 			[
-				/[a-zA-Z_.]*/,
+				/[a-zA-Z_\d]*/,
 				{
 					cases: {
 						define: { token: "keyword.$0", next: "@define" },
