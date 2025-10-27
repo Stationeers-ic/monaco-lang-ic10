@@ -1,5 +1,6 @@
 import * as monaco from "monaco-editor"
 import { registerLanguage } from "../../src"
+
 // Monaco editor is loaded via AMD in index.html
 // declare const monaco: typeof import("monaco-editor");
 
