@@ -51,17 +51,42 @@ export const language: languages.IMonarchLanguage = {
 			// [/./, { next: "@popall" }],
 		],
 		comment: [
-			[/\s*seed:/, "string", "@seed"],
-			[/.*$/, "comment", "@popall"],
+			[/#(?:(?:\s*[\w]+\s*:[^\n\r]*?)|(?:\s*\w+\s*));/, "@rematch", "@debugComment"],
+			[/[^#]*$/, "comment", "@popall"],
+			[/[^#]+/, "comment"],
+			[/#/, "comment"],
+			// [/.*$/, "comment", "@popall"],
 		],
-		seed: [
-			[/\s*seed:/, "string"],
-			[/\d+$/, "number", "@popall"],
-			[/\d+/, "number", "@pop"],
+		// seed: [
+		// 	[/\s*seed:/, "string"],
+		// 	[/\d+$/, "number", "@popall"],
+		// 	[/\d+/, "number", "@pop"],
+
+		debugComment: [
+			[/#/, "comment"],
+			[/\s*\w+\s*;/, { token: "number.debugFunction", goBack: 1 }],
+			[/\s*\w+\s*:/, "@rematch", "@debugWithArgument"],
+			[/[^;]+/, "comment.debugInvalid"],
+			[/;$/, "comment.debugEnd", "@popall"],
+			[/;/, "comment.debugEnd", "@pop"],
+		],
+		debugWithArgument: [
+			[/\s*\w+\s*/, "number.debugFunction"],
+			[/:/, "delimiter.debugCall", "@debugArgument"],
+			[/[^;]+/, "comment.debugInvalid"],
+			[/;/, { token: "", next: "@pop", goBack: 1 }],
+		],
+		debugArgument: [
+			[/\s*'[^\r\n]*'\s*[,;]/, { token: "string.debugArgument", goBack: 1 }],
+			[/\s*"[^\r\n]*"\s*[,;]/, { token: "string.debugArgument", goBack: 1 }],
+			[/\s*[^\s;,'"]+\s*[,;]/, { token: "number.debugArgument", goBack: 1 }],
+			[/,/, "delimiter.debugArgument"],
+			[/[^;]+/, "comment.debugInvalid"],
+			[/;/, { token: "", next: "@pop", goBack: 1 }],
 		],
 		whitespace: [
 			[/\s+/, ""],
-			[/#/, "comment", "@comment"],
+			[/#/, "@rematch", "@comment"],
 		],
 		instruction: [
 			{ include: "@whitespace" },
@@ -122,55 +147,5 @@ export const language: languages.IMonarchLanguage = {
 		],
 		bin: [[/[01_]+/, "number.bin", "@pop"]],
 		hex: [[/[0-9a-fA-F_]+/, "number.hex", "@pop"]],
-		// 	// keys
-		// 	[/(,)(\s*)([a-zA-Z_]\w*)(\s*)(:)(?!:)/, ['delimiter', '', 'key', '', 'delimiter']],
-		// 	[/({)(\s*)([a-zA-Z_]\w*)(\s*)(:)(?!:)/, ['@brackets', '', 'key', '', 'delimiter']],
-
-		// 	// delimiters and operators
-		// 	[/[()]/, '@brackets'],
-		// 	[
-		// 		/@symbols/,
-		// 		{
-		// 			cases: {
-		// 				'@operators': 'delimiter',
-		// 				'@default': ''
-		// 			}
-		// 		}
-		// 	],
-
-		// 	// numbers
-		// 	[/\d*\.\d+([eE][\-+]?\d+)?/, 'number.float'],
-		// 	[/0[xX][0-9a-fA-F_]*[0-9a-fA-F]/, 'number.hex'],
-		// 	[/\d+?/, 'number'],
-
-		// 	// delimiter: after number because of .\d floats
-		// 	[/[;,.]/, 'delimiter'],
-
-		// 	// strings: recover on non-terminated strings
-		// 	[/"([^"\\]|\\.)*$/, 'string.invalid'], // non-teminated string
-		// 	[/'([^'\\]|\\.)*$/, 'string.invalid'], // non-teminated string
-		// 	[/"/, 'string', '@string."'],
-		// 	[/'/, 'string', "@string.'"]
-		// ],
-
-		// whitespace: [
-		// 	[/[ \t\r\n]+/, ''],
-		// 	[/#\[([=]*)\[/, 'comment', '@comment.$1'],
-		// 	[/#.*$/, 'comment']
-		// ],
-
-		// comment: [
-		// 	[/[^\]]+/, 'comment'],
-		// 	[
-		// 		/\]([=]*)\]/,
-		// 		{
-		// 			cases: {
-		// 				'$1==$S2': { token: 'comment', next: '@pop' },
-		// 				'@default': 'comment'
-		// 			}
-		// 		}
-		// 	],
-		// 	[/./, 'comment']
-		// ],
 	},
 }
