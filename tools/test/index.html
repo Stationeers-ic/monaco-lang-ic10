@@ -13,6 +13,10 @@
 				height: 100%;
 				width: 100%;
 			}
+			.breakpoint-glyph {
+				background: url('data:image/svg+xml,<svg fill="red" width="14" height="14" xmlns="http://www.w3.org/2000/svg"><circle cx="7" cy="7" r="6"/></svg>')
+					no-repeat center center;
+			}
 		</style>
 		<script type="text/javascript" src="https://unpkg.com/monaco-themes/dist/monaco-themes.js"></script>
 	</head>
@@ -28,15 +32,15 @@
 		<script type="module" src="./index.ts"></script>
 		<script>
 			// Hot reload WebSocket connection
-			const ws = new WebSocket('ws://localhost:3000/__hot_reload');
-			ws.addEventListener('message', (event) => {
-				if (event.data === 'reload') {
-					console.log('Files changed, reloading...');
+			const ws = new WebSocket("ws://localhost:3000/__hot_reload");
+			ws.addEventListener("message", (event) => {
+				if (event.data === "reload") {
+					console.log("Files changed, reloading...");
 					location.reload();
 				}
 			});
-			ws.addEventListener('close', () => {
-				console.log('Hot reload disconnected');
+			ws.addEventListener("close", () => {
+				console.log("Hot reload disconnected");
 			});
 		</script>
 	</body>
