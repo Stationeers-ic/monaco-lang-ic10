@@ -1,6 +1,6 @@
 import { writeFile } from "node:fs/promises"
 import z from "zod"
-import { row, stringifyHtml } from "."
+import { row } from "."
 import instructionSnippets from "./instructionSnippets"
 
 export default async function updateInstructionSnippets() {
@@ -10,7 +10,6 @@ export default async function updateInstructionSnippets() {
 		name: z.string().min(1),
 		preview: z.string().min(1),
 		snippet: z.string().optional(),
-		description: z.string().optional(),
 		deprecated: z.boolean().optional(),
 	})
 	type instruction = z.infer<typeof instruction>
@@ -22,7 +21,6 @@ export default async function updateInstructionSnippets() {
 			name: entry.name,
 			preview: entry.example,
 			snippet: instructionSnippets[entry.name] || undefined,
-			description: stringifyHtml(entry.description) || undefined,
 			deprecated: entry.deprecated || undefined,
 		}
 		if (instructionSnippets[entry.name] === undefined) {
@@ -55,7 +53,6 @@ export default async function updateInstructionSnippets() {
 		fileContent += row(`name: ${JSON.stringify(ins.name)},`, 2)
 		if (ins.snippet) fileContent += row(`snippet: ${JSON.stringify(ins.snippet || "")},`, 2)
 		fileContent += row(`preview: ${JSON.stringify(ins.preview)},`, 2)
-		if (ins.description) fileContent += row(`description: ${JSON.stringify(ins.description)},`, 2)
 		if (ins.deprecated) fileContent += row(`deprecated: true,`, 2)
 		fileContent += row(`},`, 1)
 	}
@@ -63,13 +60,11 @@ export default async function updateInstructionSnippets() {
 	fileContent += row(`name: string`, 1)
 	fileContent += row(`snippet?: string`, 1)
 	fileContent += row(`preview: string`, 1)
-	fileContent += row(`description?: string`, 1)
 	fileContent += row(`deprecated?: boolean`, 1)
 	fileContent += `}[] as {\n`
 	fileContent += row(`name: string`, 1)
 	fileContent += row(`snippet?: string`, 1)
 	fileContent += row(`preview: string`, 1)
-	fileContent += row(`description?: string`, 1)
 	fileContent += row(`deprecated?: boolean`, 1)
 	fileContent += `}[]\n`
 	await writeFile("./src/data/instructions.ts", fileContent)

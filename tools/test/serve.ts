@@ -50,6 +50,7 @@ Bun.serve({
 			const result = await Bun.build({
 				entrypoints: [`./tools/test${path}`],
 				target: "browser",
+
 				// external: ["monaco-editor"],
 				minify: false,
 				sourcemap: "inline",

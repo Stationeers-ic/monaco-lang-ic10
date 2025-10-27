@@ -1,4 +1,5 @@
 import updateLogicAndConstants from "./constants"
+import generateLocales from "./generateLocale"
 import updateInstructionSnippets from "./updateInstructionSnippets"
 
 export function row(str: string, indent: number): string {
@@ -20,7 +21,10 @@ export function stringifyHtml(str: string): string {
 	return str
 }
 
-await Promise.all([await updateLogicAndConstants(), await updateInstructionSnippets()])
+// await generateLocales().catch((err) => {
+// 	console.error("Error generating locale:", err)
+// })
+await Promise.all([updateLogicAndConstants(), updateInstructionSnippets(), generateLocales()])
 	.then(() => {
 		console.log("Data updated successfully.")
 	})

@@ -1,4 +1,5 @@
 import type { languages } from "monaco-editor"
+import { isConstant, type nestedData } from "./data"
 import rawConstants from "./data/constants"
 import rawInstructions from "./data/instructions"
 import rawLogic from "./data/logic"
@@ -16,18 +17,18 @@ for (let i = 0; i < rawInstructions.length; i++) {
 	if (!ins || ins.name.length === 0) continue
 	instructions.push(ins.name)
 }
-const logic: string[] = []
-for (let i = 0; i < rawLogic.length; i++) {
-	const ins = rawLogic[i]
-	if (!ins || ins.literal.length === 0) continue
-	logic.push(ins.literal)
+function getLiterals(data: nestedData, literals: string[] = []): string[] {
+	for (const key in data) {
+		const value = data[key]
+		if (isConstant(value)) literals.push(value.literal)
+		else getLiterals(value, literals)
+	}
+	return literals
 }
-const constants: string[] = []
-for (let i = 0; i < rawConstants.length; i++) {
-	const ins = rawConstants[i]
-	if (!ins || ins.literal.length === 0) continue
-	constants.push(ins.literal)
-}
+
+const logic: string[] = getLiterals(rawLogic)
+
+const constants: string[] = getLiterals(rawConstants)
 
 export const language: languages.IMonarchLanguage = {
 	defaultToken: "",
@@ -63,7 +64,7 @@ export const language: languages.IMonarchLanguage = {
 		// 	[/\d+/, "number", "@pop"],
 
 		debugComment: [
-			[/#/, "comment"],
+			[/#/, "comment.debugStart"],
 			[/\s*\w+\s*;/, { token: "number.debugFunction", goBack: 1 }],
 			[/\s*\w+\s*:/, "@rematch", "@debugWithArgument"],
 			[/[^;]+/, "comment.debugInvalid"],

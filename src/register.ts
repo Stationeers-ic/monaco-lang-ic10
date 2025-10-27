@@ -1,5 +1,5 @@
 // import { languages } from "monaco-editor"
-import { registerCompletionProvider } from "./suggestions.js"
+import { registerCompletionProvider } from "./suggestions/suggestions.js"
 import { conf, language } from "./syntaxDefenition.js"
 /**
  * Registers the IC10 language with Monaco Editor.

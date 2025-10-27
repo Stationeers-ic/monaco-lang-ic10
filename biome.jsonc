@@ -6,7 +6,7 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["**", "!!**/dist", "!!**/src/data"],
+		"includes": ["**", "!!**/dist", "!!**/src/data", "**/src/data/locale/index.ts"],
 		"maxSize": 999999999999999,
 		"ignoreUnknown": true
 	},

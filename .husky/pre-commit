@@ -1,4 +1,4 @@
 set -e
 
 bun run fix
-
+bun test

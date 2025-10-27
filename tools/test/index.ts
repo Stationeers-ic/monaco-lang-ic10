@@ -1,5 +1,6 @@
 import * as monaco from "monaco-editor"
-import { registerLanguage } from "../../src"
+import { localeRU, registerLanguage } from "../../src"
+import LocaleDataManager from "../../src/data/locale"
 
 // Monaco editor is loaded via AMD in index.html
 // declare const monaco: typeof import("monaco-editor");
@@ -39,6 +40,9 @@ const editor = monaco.editor.create(document.getElementById("container")!, {
 		return `${lineNumber - 1}`
 	},
 })
+
+LocaleDataManager.loadLocale("ru", localeRU)
+LocaleDataManager.setDefaultLocale("ru")
 
 // const breakpoints = new Map<number, monaco.editor.IEditorDecorationsCollection>()
 
