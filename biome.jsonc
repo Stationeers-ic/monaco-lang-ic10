@@ -9,7 +9,7 @@
 		"includes": [
 			"**",
 			"!!**/dist",
-			"!!**/src/data/locate/*.json",
+			"!!**/src/data/locale/*.json",
 			"!!**/src/data/{constants,instructions,logic}.ts"
 		],
 		"maxSize": 999999999999999,
