@@ -1,0 +1,15 @@
+{
+  "LogicType.Charge": "Laitteen nykyinen varaustaso",
+  "LogicType.On": "Laitteen nykyinen status, 0 pois päältä, 1 päällä.",
+  "LogicType.PowerRequired": "Ei muita luettavia laitteita verkostossa",
+  "LogicType.RatioCarbonDioxide": "The ratio of Hiilidioksidi in device atmosphere",
+  "LogicType.RatioCarbonDioxideInput": "The ratio of Hiilidioksidi in device's input network",
+  "LogicType.RatioCarbonDioxideInput2": "The ratio of Hiilidioksidi in device's Input2 network",
+  "LogicType.RatioCarbonDioxideOutput": "The ratio of Hiilidioksidi in device's Output network",
+  "LogicType.RatioCarbonDioxideOutput2": "The ratio of Hiilidioksidi in device's Output2 network",
+  "LogicType.RatioNitrousOxide": "The ratio of Typpimonoksidi in device atmosphere",
+  "LogicType.RatioNitrousOxideInput": "The ratio of Typpimonoksidi in device's input network",
+  "LogicType.RatioNitrousOxideInput2": "The ratio of Typpimonoksidi in device's Input2 network",
+  "LogicType.RatioNitrousOxideOutput": "The ratio of Typpimonoksidi in device's Output network",
+  "LogicType.RatioNitrousOxideOutput2": "The ratio of Typpimonoksidi in device's Output2 network"
+}
