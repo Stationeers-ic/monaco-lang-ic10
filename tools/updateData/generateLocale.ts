@@ -99,7 +99,7 @@ async function generateLocale(locale: locale | "EN"): Promise<number> {
 
 async function saveLocaleFile(locale: locale | "EN", data: Record<string, string>) {
 	const fileContent = JSON.stringify(data, null, 2)
-	await writeFile(`./src/data/locale/${locale}.json`, fileContent, "utf-8")
+	await writeFile(`./src/data/locale/${locale.toLowerCase()}.json`, fileContent, "utf-8")
 }
 
 async function generateLocales() {
