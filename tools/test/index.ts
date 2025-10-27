@@ -1,23 +1,8 @@
 import * as monaco from "monaco-editor"
 import { registerLanguage } from "../../src"
-import i18n from "../../src/data/locale"
-import en from "../../src/data/locale/en.json"
+
 // Monaco editor is loaded via AMD in index.html
 // declare const monaco: typeof import("monaco-editor");
-import ru from "../../src/data/locale/ru.json"
-
-await i18n.init({
-	fallbackLng: "en",
-	lng: "ru",
-	resources: {
-		en: {
-			translation: en,
-		},
-		ru: {
-			translation: ru,
-		},
-	},
-})
 
 const value = `
 #place the values in r0 to r7
