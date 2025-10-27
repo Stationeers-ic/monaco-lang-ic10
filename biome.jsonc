@@ -6,7 +6,12 @@
 		"useIgnoreFile": true
 	},
 	"files": {
-		"includes": ["**", "!!**/dist", "!!**/src/data", "**/src/data/locale/index.ts"],
+		"includes": [
+			"**",
+			"!!**/dist",
+			"!!**/src/data/locate/*.json",
+			"!!**/src/data/{constants,instructions,logic}.ts"
+		],
 		"maxSize": 999999999999999,
 		"ignoreUnknown": true
 	},
