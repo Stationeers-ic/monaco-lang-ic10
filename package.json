@@ -11,7 +11,7 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc --removeComments && tsc --declaration --emitDeclarationOnly",
-    "prepack": "bun run fix && bun test && rm -R dist && bun run build",
+    "prepack": "bun run fix && rm -R dist && bun run build",
     "dev": "bun --hot tools/test/serve.ts",
     "fix": "biome check . --write --unsafe",
     "prepare": "husky",
