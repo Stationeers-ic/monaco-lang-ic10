@@ -91,9 +91,9 @@ export const language: languages.IMonarchLanguage = {
 		],
 		instruction: [
 			{ include: "@whitespace" },
-			[/[a-zA-Z_\d]*:/, { token: "support.type", next: "@pop" }],
+			[/[a-zA-Z_\d]+:/, { token: "support.type", next: "@pop" }],
 			[
-				/[a-zA-Z_\d]*/,
+				/[a-zA-Z_\d]+/,
 				{
 					cases: {
 						define: { token: "keyword.$0", next: "@define" },
@@ -107,12 +107,25 @@ export const language: languages.IMonarchLanguage = {
 		],
 		define: [{ include: "@whitespace" }, [/[a-zA-Z_.]*/, "constant.numeric", "@popall"]],
 		alias: [{ include: "@whitespace" }, [/[a-zA-Z_.]*/, "variable", "@popall"]],
-		label: [{ include: "@whitespace" }, [/[^\s#]+\s*/, "support.type", "@popall"]],
+		label: [
+			{ include: "@whitespace" },
+			[/[^\s#]+\s*$/, "support.type", "@popall"],
+			[/[^\s#]+\s*/, "support.type", "@popall"]
+		],
 		register: [
 			[/r+\d+/, "variable"],
 			[/db/, "variable.language"],
-			[/d\d+/, "variable.predefined"],
-			[/d[r]+\d+/, "variable.predefined"],
+			[/dr*\d+:\d*/, "@rematch", "channel"],
+			[/dr*\d+/, "variable.predefined"],
+		],
+		channel: [
+			[/dr*\d+/, "variable.predefined"],
+			[/:\d+/, "delimiter.channel", "channelArgument"],
+			[/:/, "delimiter.channel", "@popall"],
+		],
+		channelArgument: [
+			[/:/, "delimiter.channel"],
+			[/\d+/, "number.channel", "@popall"]
 		],
 		arguments: [
 			{ include: "@whitespace" },
@@ -141,10 +154,10 @@ export const language: languages.IMonarchLanguage = {
 		],
 		string: [[/[^\r\n"]*/, "string", "@pop"]],
 		numbers: [
-			[/-?\d+(?:\.\d)?\d*/, "number.float"],
+			[/-?\d+(?:\.\d+)/, "number.float"],
 			[/-?\d+/, "number"],
-			[/%/, "number.bin.start", "@bin"],
-			[/\$/, "number.hex.start", "@hex"],
+			[/-?%/, "number.bin.start", "@bin"],
+			[/-?\$/, "number.hex.start", "@hex"],
 		],
 		bin: [[/[01_]+/, "number.bin", "@pop"]],
 		hex: [[/[0-9a-fA-F_]+/, "number.hex", "@pop"]],
