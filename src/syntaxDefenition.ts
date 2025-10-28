@@ -110,7 +110,7 @@ export const language: languages.IMonarchLanguage = {
 		label: [
 			{ include: "@whitespace" },
 			[/[^\s#]+\s*$/, "support.type", "@popall"],
-			[/[^\s#]+\s*/, "support.type", "@popall"]
+			[/[^\s#]+\s*/, "support.type", "@popall"],
 		],
 		register: [
 			[/r+\d+/, "variable"],
@@ -125,7 +125,7 @@ export const language: languages.IMonarchLanguage = {
 		],
 		channelArgument: [
 			[/:/, "delimiter.channel"],
-			[/\d+/, "number.channel", "@popall"]
+			[/\d+/, "number.channel", "@popall"],
 		],
 		arguments: [
 			{ include: "@whitespace" },
