@@ -15,6 +15,7 @@ const cachedValues: {
 }
 const getValueSuggestions: suggestionFunction = ({ range, snippets, lineContent }) => {
 	if (lineContent.includes("#")) return
+	if (lineContent.trim() === "" || /^\s*[a-z]*$/.test(lineContent)) return
 	if (cachedValues.locale !== i18n.language) generateValue()
 	const Value = /(?:((?:\S*)\.)\w*|(\S+))$/.exec(lineContent)
 	if (!Value) {

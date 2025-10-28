@@ -12,7 +12,7 @@ const cachedInstructions: {
 }
 
 const getInstructions: suggestionFunction = ({ range, snippets, lineContent }) => {
-	if (lineContent.trim() !== "" && !/^\s*[a-z]*$/.test(lineContent.trim())) return
+	if (lineContent.trim() !== "" && !/^\s*[a-z]*$/.test(lineContent)) return
 	if (cachedInstructions.locale !== i18n.language) generateInstructions()
 	for (const item of cachedInstructions.cache.values()) snippets.push({ ...item, range })
 }
