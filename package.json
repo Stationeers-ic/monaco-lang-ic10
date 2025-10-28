@@ -2,7 +2,7 @@
   "name": "@stationeers-ic/monaco-lang-ic10",
   "author": "Aidan647",
   "description": "Monaco Editor language support for IC10 assembly language used in Stationeers.",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "publishConfig": {
     "access": "public"
   },
